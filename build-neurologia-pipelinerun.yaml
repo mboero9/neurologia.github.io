@@ -1,15 +1,16 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-    name: build-neurologia-pipelinerun
-    spec:
-        pipelineRef:
-              name: build-neurologia-pipeline
-                resources:
-                      - name: source-repo
-                            resourceRef:
-                                      name: neurologia-git
-                                        params:
-                                              - name: IMAGE
-                                                    value: "gcr.io/my-project-id/neurologia:latest"
+  name: build-neurologia-pipelinerun
+spec:
+  pipelineRef:
+    name: build-neurologia-pipeline
+  resources:
+    - name: source-repo
+      resourceRef:
+        name: neurologia-git
+  params:
+    - name: IMAGE
+      value: "gcr.io/my-project-id/neurologia:latest"
+
 
