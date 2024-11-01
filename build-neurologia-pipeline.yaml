@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+    name: build-neurologia-pipeline
+    spec:
+        params:
+              - name: IMAGE
+                    description: "La dirección completa de la imagen de contenedor que se creará"
+                          type: string
+                            resources:
+                                  - name: source-repo
+                                        type: git
+                                          tasks:
+                                                - name: build-image
+                                                      taskRef:
+                                                                name: build-neurologia-image
+                                                                      params:
+                                                                                - name: IMAGE
+                                                                                          value: "$(params.IMAGE)"
+                                                                                                resources:
+                                                                                                          inputs:
+                                                                                                                      - name: source
+                                                                                                                                  resource: source-repo
+
