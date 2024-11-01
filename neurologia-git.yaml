@@ -1,12 +1,12 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-    name: neurologia-git
-    spec:
-        type: git
-          params:
-                - name: url
-                      value: "https://github.com/mboero9/neurologia.github.io"
-                          - name: revision
-                                value: "main"
+  name: neurologia-git
+spec:
+  type: git
+  params:
+    - name: url
+      value: "https://github.com/mboero9/neurologia.github.io"
+    - name: revision
+      value: "main"
 
